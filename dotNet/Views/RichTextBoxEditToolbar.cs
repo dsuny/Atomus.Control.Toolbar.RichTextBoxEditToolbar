@@ -1217,7 +1217,7 @@ namespace Atomus.Control.Toolbar
         #endregion
 
 
-        private async void AddImageList(ICore core, ToolStripButton button)
+        private void AddImageList(ICore core, ToolStripButton button)
         {
             string tmp;
 
@@ -1225,7 +1225,30 @@ namespace Atomus.Control.Toolbar
             {
                 tmp = string.Format("{0}.{1}", button.Name, "Image");
 
-                button.Image = await core.GetAttributeWebImage(tmp);
+                switch (tmp)
+                {
+                    case "AlignCenter.Image": button.Image = Properties.Resources.center; break;
+                    case "AlignLeft.Image": button.Image = Properties.Resources.left; break;
+                    case "AlignRight.Image": button.Image = Properties.Resources.right; break;
+                    case "BackColor.Image": button.Image = Properties.Resources.backcolor; break;
+                    case "Bold.Image": button.Image = Properties.Resources.bold; break;
+                    case "Bullets.Image": button.Image = Properties.Resources.bullets; break;
+                    case "ChooseFont.Image": button.Image = Properties.Resources.font; break;
+                    case "Find.Image": button.Image = Properties.Resources.find; break;
+                    case "FontColor.Image": button.Image = Properties.Resources.forecolor; break;
+                    case "Indent.Image": button.Image = Properties.Resources.indent; break;
+                    case "InsertPicture.Image": button.Image = Properties.Resources.picture; break;
+                    case "Italic.Image": button.Image = Properties.Resources.italic; break;
+                    case "Open.Image": button.Image = Properties.Resources.open; break;
+                    case "Outdent.Image": button.Image = Properties.Resources.outdent; break;
+                    case "Replace.Image": button.Image = Properties.Resources.replace; break;
+                    case "Save.Image": button.Image = Properties.Resources.save; break;
+                    case "Underline.Image": button.Image = Properties.Resources.underline; break;
+                    case "WordWrap.Image": button.Image = Properties.Resources.wordwrap; break;
+                    case "ZoomIn.Image": button.Image = Properties.Resources.zoomin; break;
+                    case "ZoomOut.Image": button.Image = Properties.Resources.zoomout; break;
+                }
+                //button.Image = await core.GetAttributeWebImage(tmp);
 
             }
             catch (Exception exception)
